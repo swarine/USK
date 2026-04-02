@@ -16,7 +16,7 @@
 @endif
 
 {{-- SUMMARY CARDS --}}
-<div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:1.5rem;">
+<div style="display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; margin-bottom:1.5rem;">
     <div style="background:var(--white); border-radius:16px; border:1px solid var(--border); padding:1rem 1.25rem; display:flex; align-items:center; gap:0.85rem;">
         <div style="width:40px; height:40px; border-radius:10px; background:#fef9c3; display:flex; align-items:center; justify-content:center; color:#ca8a04; font-size:1rem; flex-shrink:0;">
             <i class="fas fa-clock"></i>
@@ -53,6 +53,15 @@
             <div style="font-size:1.3rem; font-weight:700;">{{ $penjualan->where('status','ditolak')->count() }}</div>
         </div>
     </div>
+    <div style="background:var(--white); border-radius:16px; border:1px solid var(--border); padding:1rem 1.25rem; display:flex; align-items:center; gap:0.85rem;">
+    <div style="width:40px; height:40px; border-radius:10px; background:var(--pink-light); display:flex; align-items:center; justify-content:center; color:var(--pink); font-size:1rem; flex-shrink:0;">
+        <i class="fas fa-coins"></i>
+    </div>
+    <div>
+        <div style="font-size:0.73rem; color:var(--gray);">Total Penghasilan</div>
+        <div style="font-size:1rem; font-weight:700; color:var(--pink);">Rp {{ number_format($totalPenghasilan, 0, ',', '.') }}</div>
+    </div>
+</div>
 </div>
 
 <div class="table-card">

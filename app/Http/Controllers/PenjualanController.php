@@ -13,7 +13,8 @@ class PenjualanController extends Controller
     public function index()
     {
         $penjualan = Penjualan::with('pelanggan')->latest()->get();
-        return view('penjualan.index', compact('penjualan'));
+        $totalPenghasilan = $penjualan->where('status', 'selesai')->sum('TotalHarga');
+        return view('penjualan.index', compact('penjualan', 'totalPenghasilan'));
     }
 
     public function create()
