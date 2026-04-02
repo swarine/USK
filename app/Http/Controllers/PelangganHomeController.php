@@ -20,12 +20,15 @@ class PelangganHomeController extends Controller
     public function riwayat()
     {
         $pelangganId = Session::get('pelanggan_id');
-        $penjualan   = Penjualan::with('detailPenjualan.produk')
+
+        $penjualan = Penjualan::with('detailPenjualan.produk')
                         ->where('PelangganID', $pelangganId)
                         ->latest()
                         ->get();
-        $totalBelanja = $penjualan->where('status', 'selesai')->sum('TotalHarga');
 
-        return view('pelanggan.riwayat', compact('penjualan',));
+        $totalBelanja  = $penjualan->where('status', 'selesai')->sum('TotalHarga');
+        $totalTransaksi = $penjualan->where('status', 'selesai')->count();
+
+        return view('pelanggan.riwayat', compact('penjualan', 'totalBelanja', 'totalTransaksi'));
     }
 }

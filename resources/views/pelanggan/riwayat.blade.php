@@ -22,8 +22,8 @@
             <i class="fas fa-receipt"></i>
         </div>
         <div>
-            <div style="font-size:0.75rem; color:var(--gray);">Total Transaksi</div>
-            <div style="font-size:1.4rem; font-weight:700;">{{ $penjualan->count() }}</div>
+            <div style="font-size:0.75rem; color:var(--gray);">Total Transaksi Selesai</div>
+            <div style="font-size:1.4rem; font-weight:700;">{{ $totalTransaksi }}</div>
         </div>
     </div>
     <div style="background:var(--white); border-radius:16px; border:1px solid var(--border); padding:1.25rem 1.5rem; display:flex; align-items:center; gap:1rem;">
@@ -32,7 +32,7 @@
         </div>
         <div>
             <div style="font-size:0.75rem; color:var(--gray);">Total Belanja</div>
-            <div style="font-size:1.1rem; font-weight:700; color:var(--pink);">Rp {{ number_format($penjualan->sum('TotalHarga'), 0, ',', '.') }}</div>
+            <div style="font-size:1.1rem; font-weight:700; color:var(--pink);">Rp {{ number_format($totalBelanja, 0, ',', '.') }}</div>
         </div>
     </div>
     <div style="background:var(--white); border-radius:16px; border:1px solid var(--border); padding:1.25rem 1.5rem; display:flex; align-items:center; gap:1rem;">
@@ -60,7 +60,7 @@
                     <div style="font-size:0.78rem; color:var(--gray);">{{ \Carbon\Carbon::parse($jual->TanggalPenjualan)->format('d F Y') }}</div>
                 </div>
             </div>
-                <div style="display:flex; align-items:center; gap:0.5rem;">
+            <div style="display:flex; align-items:center; gap:0.5rem;">
                 @if($jual->status === 'menunggu')
                     <span class="badge" style="background:#fef9c3; color:#ca8a04;"><i class="fas fa-clock"></i> Menunggu</span>
                 @elseif($jual->status === 'diproses')
@@ -71,10 +71,10 @@
                     <span class="badge" style="background:#fee2e2; color:#dc2626;"><i class="fas fa-times-circle"></i> Ditolak</span>
                 @endif
             </div>
-    <span class="badge badge-pink" style="font-size:0.85rem; padding:0.3rem 0.8rem;">
-        Rp {{ number_format($jual->TotalHarga, 0, ',', '.') }}
-    </span>
-</div>
+            <span class="badge badge-pink" style="font-size:0.85rem; padding:0.3rem 0.8rem;">
+                Rp {{ number_format($jual->TotalHarga, 0, ',', '.') }}
+            </span>
+        </div>
         <div class="table-wrap">
             <table>
                 <thead>
