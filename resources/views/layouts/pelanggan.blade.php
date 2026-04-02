@@ -535,7 +535,7 @@ function toggleFaq(btn) {
         let html = '';
         items.forEach(item => {
             total += item.harga * item.qty;
-            count += item.qty;
+            count += 1;
             const imgHtml = item.gambar
                 ? `<img src="/storage/${item.gambar}" alt="${item.nama}">`
                 : `<i class="fas fa-cube"></i>`;

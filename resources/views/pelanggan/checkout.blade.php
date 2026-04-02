@@ -131,8 +131,7 @@
                 <div id="qris-box" style="display:none; padding:1.25rem; background:var(--pink-light); border-radius:14px; border:1.5px dashed var(--pink-mid);">
                     <div style="text-align:center; margin-bottom:1.25rem;">
                         <p style="font-size:0.8rem; color:var(--gray); margin-bottom:0.75rem;">Scan QR code di bawah untuk membayar</p>
-                        <img src="{{ asset('images/qris.png') }}"
-                             onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=DOLL-STORE-QRIS'"
+                        <img src="{{ asset('images/qr.png') }}"
                              style="width:180px; height:180px; border-radius:12px; border:3px solid var(--white); box-shadow:0 4px 16px rgba(233,30,140,0.15);">
                         <p style="font-size:0.75rem; color:var(--pink); font-weight:600; margin-top:0.75rem;">
                             Total: Rp {{ number_format($total, 0, ',', '.') }}
